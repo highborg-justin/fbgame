@@ -1,0 +1,65 @@
+<html>
+<center>
+<br/><br/><br/>
+<head>
+<style>
+.adsbutton {
+ display:none;
+}
+</style>
+ <script type="text/javascript">
+
+var timeInSecs;
+var ticker;
+var flag=0;
+var div
+
+
+function startTimer(secs){
+timeInSecs = parseInt(secs)-1;
+ticker = setInterval("tick()",1000);   // every second
+}
+
+function tick() {
+var secs = timeInSecs;
+if (secs>0) {
+timeInSecs--;
+}
+else {
+clearInterval(ticker); // stop counting at zero
+div = document.getElementById('clickbutton').style.display = 'none';
+div = document.getElementById('adsbutton').style.display = 'block';
+// startTimer(60);  // remove forward slashes in front of startTimer to repeat if required
+}
+
+document.getElementById("countdown").innerHTML = secs;
+}
+
+  // 60 seconds 
+
+var clicks = 0;
+function getClick(clicks) {
+	if(flag==0){
+		startTimer(10);
+		flag=1;
+	}
+	document.getElementById('clicker').innerHTML = clicks
+}
+function headToAds(){
+	window.open('https://facebook.com/JustinWithJesus','_blank');
+}
+</script>
+</head>
+<body>
+<span id="message">You Have <span id="countdown" style="font-weight: bold;">10</span> seconds left </span>
+<div id="clickbutton">
+<input value="Click Me" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
+</div>
+<div id="adsbutton" class="adsbutton">
+<input value="Game Over" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="headToAds();">
+</div>
+<div id="clicker" style="display: block-inline; width:200px; height:50px; background-color:red;text-align:center; font-size:xx-large;  font-family:sans-serif;color:white;">
+Your Score
+</div>
+</body>
+</html>
