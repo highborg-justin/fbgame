@@ -1,6 +1,4 @@
 <html>
-<center>
-<br/><br/><br/>
 <head>
 <style>
 .adsbutton {
@@ -57,16 +55,45 @@ function resetall() {
 }
 </script>
 </head>
-<body style="font-family:sans-serif; ">
-<span id="message">You Have <span id="countdown" style="font-weight: bold;">10</span> seconds left </span>
+<body style="font-family:sans-serif; background-color:#bdc3c7; ">
+   <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '259826257528588',
+          status     : true,
+          xfbml      : true
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+	   document.getElementById('send-to-many').onclick = function() {
+  FB.ui({
+    method: 'apprequests',
+    message: 'You should learn more about the Platform.'
+  }, Log.info.bind('send-to-many callback'));
+}
+
+    </script>
+	<button class="btn" id="send-to-many">Send to Many</button>
+<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fapps.facebook.com%2Fbestclicker%2F&width&layout=box_count&action=like&show_faces=false&share=false&height=65&appId=259826257528588" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:65px;" allowTransparency="true"></iframe>
+<center>
+<span id="message" style="font-size:x-large;">You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
 <div id="clickbutton">
-<input value="Click Me" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
+<input value="Click Me" style="width:300px; height:400px; background-color:#2c3e50;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
 </div>
 <div id="adsbutton" class="adsbutton">
-<input value="Game Over" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="headToAds();">
+<input value="Game Over" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button" <!--onclick="headToAds();-->">
 </div>
-<input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" >
-<input value="Reset" style="display: inline; width:200px; height:50px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
+<input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
+<input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:#2980b9;text-align:center; font-size:x-large; color:white;" type="button" >
+<input value="Submit!" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="submitscore();">
 
 </body>
 </html>
