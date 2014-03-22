@@ -52,13 +52,13 @@ function resetall() {
    document.getElementById('clicker').value = 'Your Score';
    div = document.getElementById('clickbutton').style.display = 'block';
    div = document.getElementById('adsbutton').style.display = 'none';
+   div = document.getElementById('countdown').innerHTML = '10';
 }
 function submitscore() {
 clicks--;
 FB.ui({
   method: 'feed',
   link: 'http://rawgithub.com/highborg-justin/fbgame/master/index.html',
-  message: 'I\'ve scored '+clicks+' points',
   caption: 'I\'ve scored '+clicks+' points',
 }, function(response){});
 }
