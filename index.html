@@ -19,8 +19,20 @@ var timeInSecs;
 var ticker;
 var flag=0;
 var div
-
-
+        
+function appreq(){
+FB.api(
+    "/me",
+    function (response) {
+      if (response && !response.error) {
+        /* handle the result */
+        FB.ui({method: 'apprequests',
+        message: 'Challenge your friends in Beat Me'
+    }, requestCallback);
+   }
+  }
+}
+);
 function startTimer(secs){
 timeInSecs = parseInt(secs)-1;
 ticker = setInterval("tick()",1000);   // every second
@@ -70,11 +82,7 @@ FB.ui({
   caption: 'I\'ve scored '+clicks+' points'
 }, function(response){});
 }
-function appreq(){
-    FB.ui({method: 'apprequests',
-        message: 'Challenge your friends in Beat Me'
-    }, requestCallback);
-}
+
 	
 </script>
 </head>
