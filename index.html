@@ -70,9 +70,15 @@ FB.ui({
   caption: 'I\'ve scored '+clicks+' points'
 }, function(response){});
 }
+function appreq(){
+    FB.ui({method: 'apprequests',
+        message: 'YOUR_MESSAGE_HERE'
+    }, requestCallback);
+}
+	
 </script>
 </head>
-<body style="font-family:sans-serif; background-color:#FCDBFF;; ">
+<body style="font-family:sans-serif; background-color:#FCDBFF; " onload="appreq()">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
