@@ -53,6 +53,13 @@ function resetall() {
    div = document.getElementById('clickbutton').style.display = 'block';
    div = document.getElementById('adsbutton').style.display = 'none';
 }
+function submitscore() {
+FB.ui({
+  method: 'feed',
+  link: 'https://apps.facebook.com/bestclicker/',
+  caption: 'Your scored '+clicks+' points',
+}, function(response){});
+}
 </script>
 </head>
 <body style="font-family:sans-serif; background-color:#bdc3c7; ">
