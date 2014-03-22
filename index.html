@@ -1,4 +1,6 @@
 <html>
+<center>
+<br/><br/><br/>
 <head>
 <style>
 .adsbutton {
@@ -41,16 +43,21 @@ function getClick(clicks) {
 		startTimer(10);
 		flag=1;
 	}
-	document.getElementById('clicker').innerHTML = clicks
+	document.getElementById('clicker').value = clicks;
 }
-function headToAds(){
+function headToAds() {
 	window.open('http://framexprezz.blogspot.in/','_blank');
+}
+function resetall() {
+   flag=0;
+   clicks=0;
+   document.getElementById('clicker').value = 'Your Score';
+   div = document.getElementById('clickbutton').style.display = 'block';
+   div = document.getElementById('adsbutton').style.display = 'none';
 }
 </script>
 </head>
-<body>
-<center>
-<br/><br/><br/>
+<body style="font-family:sans-serif; ">
 <span id="message">You Have <span id="countdown" style="font-weight: bold;">10</span> seconds left </span>
 <div id="clickbutton">
 <input value="Click Me" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
@@ -58,13 +65,8 @@ function headToAds(){
 <div id="adsbutton" class="adsbutton">
 <input value="Game Over" style="width:300px; height:400px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="headToAds();">
 </div>
-<div id="clicker" style="display: block-inline; width:200px; height:50px; background-color:red;text-align:center; font-size:xx-large;  font-family:sans-serif;color:white;">
-Your Score
-</div>
-<a href="javascript:{ flag=0; clicks=0; }"
-<div id="reset" style="display: block-inline; width:200px; height:50px; background-color:red;text-align:center; font-size:xx-large;  font-family:sans-serif;color:white;">
-Retry
-</div>
-</center>
+<input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" >
+<input value="Reset" style="display: inline; width:200px; height:50px; background-color:red;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
+
 </body>
 </html>
