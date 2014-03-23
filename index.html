@@ -31,7 +31,26 @@ var flag=0;
 var div
         
 function appreq(){
-elms=document.getElementById('friends').getElementsByTagName('li');for(var fid in elms){if(typeof elms[fid] === 'object'){fs.click(elms[fid]);}}
+   // Get the list of selected friends
+   var sendUIDs = '';
+   var mfsForm = document.getElementById('mfsForm');
+     for(var i = 0; i < mfsForm.friends.length; i++) {
+       if(mfsForm.friends[i].checked) {
+         sendUIDs += mfsForm.friends[i].value + ',';
+       }
+     }
+
+   // Use FB.ui to send the Request(s)
+   FB.ui({method: 'apprequests',
+     to: sendUIDs,
+     title: 'My Great Invite',
+     message: 'Check out this Awesome App!',
+   }, callback);
+ }
+
+ function callback(response) {
+   console.log(response);
+ }
 }
 function fbl() {
  FB.login(function(response) {
