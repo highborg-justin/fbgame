@@ -96,10 +96,9 @@ FB.ui({
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="fb-like" data-href="https://apps.facebook.com/bestclicker/" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
 <center>
-<fb:login-button size="xlarge"
-                 onlogin="require('./log').info('onlogin callback')">
- Connect and Play
-</fb:login-button><br/>
+<div class="fb-login-button" data-perms="publish_actions">
+        Login with Facebook
+</div>><br/>
 <span id="message" style="font-size:x-large;">You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
 <div id="clickbutton">
 <input value="Click Me" style="width:300px; height:400px; background-color:#2c3e50;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
