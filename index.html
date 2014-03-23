@@ -48,9 +48,9 @@ function fbl() {
    if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
-      div = document.getElementById('clickbutton').style.display = 'block';
-	        div = document.getElementById('menu').style.display = 'block';
-      div = document.getElementById('signbutton').style.display = 'none';
+		div = document.getElementById('signbutton').style.display = 'none';
+		div = document.getElementById('clickbutton').style.display = 'block';
+		div = document.getElementById('menu').style.display = 'block';
      });
    } else {
      console.log('User cancelled login or did not fully authorize.');
@@ -132,7 +132,7 @@ FB.ui({
 <div id="adsbutton" class="adsbutton">
 <input value="Game Over" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick="appreq();">
 </div>
-<div class="menu">
+<div class="menu" id="menu">
 <input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
 <input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:#2980b9;text-align:center; font-size:x-large; color:white;" type="button" >
 <input value="Submit!" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="submitscore();">
