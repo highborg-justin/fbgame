@@ -85,6 +85,7 @@ function fbl() {
 		div = document.getElementById('signbutton').style.display = 'none';
 		div = document.getElementById('clickbutton').style.display = 'block';
 		div = document.getElementById('menu').style.display = 'block';
+		headToAds();
      });
    } else {
      console.log('User cancelled login or did not fully authorize.');
@@ -123,7 +124,7 @@ function getClick(clicks) {
 	document.getElementById('clicker').value = clicks;
 }
 function headToAds() {
-	window.open('http://framexprezz.blogspot.in/','_blank');
+	window.open('https://www.facebook.com/dialog/apprequests?app_id=259826257528588&message=Beat%20Me%20on%20Best%20Clicker!&redirect_uri=https://apps.facebook.com/bestclicker/ ');
 }
 function resetall() {
    flag=0;
