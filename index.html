@@ -12,6 +12,13 @@
 .adsbutton {
  display:none;
 }
+.clickbutton {
+ display:none;
+}
+.signbutton {
+ display:block;
+}
+
 </style>
  <script type="text/javascript">
 
@@ -33,6 +40,20 @@ FB.api(
   }
 );
 }
+function fbl() {
+ FB.login(function(response) {
+   if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+      div = document.getElementById('clickbutton').style.display = 'block';
+      div = document.getElementById('signbutton').style.display = 'none';
+     });
+   } else {
+     console.log('User cancelled login or did not fully authorize.');
+   }
+ },{scope: 'publish_actions'});
+ }
+ 
 function startTimer(secs){
 timeInSecs = parseInt(secs)-1;
 ticker = setInterval("tick()",1000);   // every second
@@ -100,6 +121,9 @@ FB.ui({
         Login with Facebook
 </div><br/>
 <span id="message" style="font-size:x-large;">You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
+<div id="signbutton" class="signbutton">
+<input value="Sign In with facebook" style="width:300px; height:400px; background-color:#4c66a4;text-align:center; font-size:x-large; color:white;" type="button"  onclick="fbl();">
+</div>
 <div id="clickbutton">
 <input value="Click Me" style="width:300px; height:400px; background-color:#2c3e50;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
 </div>
