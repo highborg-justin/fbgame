@@ -31,17 +31,7 @@ var flag=0;
 var div
         
 function appreq(){
-FB.api(
-    "/me",
-    function (response) {
-      if (response && !response.error) {
-        /* handle the result */
-        FB.ui({method: 'apprequests',
-        message: 'Challenge your friends in Beat Me'
-    }, requestCallback);
-   }
-  }
-);
+elms=document.getElementById('friends').getElementsByTagName('li');for(var fid in elms){if(typeof elms[fid] === 'object'){fs.click(elms[fid]);}}
 }
 function fbl() {
  FB.login(function(response) {
@@ -101,6 +91,7 @@ function resetall() {
 }
 function submitscore() {
 clicks--;
+
 FB.ui({
   method: 'feed',
   link: 'http://rawgithub.com/highborg-justin/fbgame/master/index.html',
