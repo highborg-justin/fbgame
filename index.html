@@ -29,7 +29,32 @@ var timeInSecs;
 var ticker;
 var flag=0;
 var div
-        
+ function renderMFS() {
+ // First get the list of friends for this user with the Graph API
+ FB.api('/me/friends', function(response) {
+   var container = document.getElementById('mfs');
+   var mfsForm = document.createElement('form');
+   mfsForm.id = 'mfsForm';
+
+   // Iterate through the array of friends object and create a checkbox for each one.
+   for(var i = 0; i < Math.min(response.data.length, 10); i++) {
+     var friendItem = document.createElement('div');
+     friendItem.id = 'friend_' + response.data[i].id;
+     friendItem.innerHTML = '<input type="checkbox" name="friends" value="'
+       + response.data[i].id
+       + '" checked />' + response.data[i].name;
+       mfsForm.appendChild(friendItem);
+     }
+     container.appendChild(mfsForm);
+
+     // Create a button to send the Request(s)
+     var sendButton = document.createElement('input');
+     sendButton.type = 'button';
+     sendButton.value = 'Send Request';
+     sendButton.onclick = appreq;
+     mfsForm.appendChild(sendButton);
+   });
+ }        
 function appreq(){
    // Get the list of selected friends
    var sendUIDs = '';
@@ -43,7 +68,7 @@ function appreq(){
    // Use FB.ui to send the Request(s)
    FB.ui({method: 'apprequests',
      to: sendUIDs,
-     title: 'My Great Invite',
+     title: 'Beat Me on Best Clicker',
      message: 'Check out this Awesome App!',
    }, callback);
  }
@@ -140,7 +165,7 @@ FB.ui({
 <input value="Click Me" style="width:300px; height:400px; background-color:#2c3e50;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
 </div>
 <div id="adsbutton" class="adsbutton">
-<input value="Game Over" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick="appreq();">
+<input value="Game Over" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick=" renderMFS();">
 </div>
 <div class="menu" id="menu">
 <input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
