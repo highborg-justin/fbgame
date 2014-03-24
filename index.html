@@ -149,21 +149,22 @@ function resetall() {
 }
 function submitscore() {
 clicks--;
-FB.api(
-    "/me/feed",
-    "POST",
-    {
-        "object": {
-            "message": "I have scored "+clicks+" points on Best Clicker! Beat Me if you can!",
-            "link": "https://apps.facebook.com/bestclicker/"
-        }
-    },
-    function (response) {
-      if (response && !response.error) {
-        div = document.getElementById('adsclick').value = 'Score Submitted';
-      }
+  FB.api('/me/feed', 'post', {
+    message: "message",
+    name: "name",
+    picture: "picture",
+    description: "description",
+    link: "link"
+  }, function (result) {
+    var retVal = true;
+    if (result) {
+        console.log('Facebook API: Send Status: Success');
     }
-);
+    else {
+        console.log('Facebook API: Send Status: Failed');
+        retVal = false;
+    } return retVal;
+  });
 }
 
 </script>
