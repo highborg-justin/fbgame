@@ -152,19 +152,19 @@ clicks--;
   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score ("+clicks+") on Beat Me - Best Clicker Game ",
     image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
-    description: "The most challenging game ever",
+    description: "The most simple and challenging game ever from HighBorgzZ",
     link: "https://apps.facebook.com/bestclicker/"
   }, function (result) {
     var retVal = true;
     if (result) {
         console.log('Facebook API: Send Status: Success');
-        div = document.getElementById('adsbutton').value = 'Score Submitted!';
     }
     else {
         console.log('Facebook API: Send Status: Failed');
         retVal = false;
     } return retVal;
   });
+  div = document.getElementById('adsbutton').value = 'Score Submitted!';
 }
 
 </script>
