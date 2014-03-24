@@ -148,6 +148,7 @@ function resetall() {
    div = document.getElementById('countdown').innerHTML = '10';
 }
 function submitscore() {
+document.getElementById('adsbutton').value = "Score Submitted!";
 clicks--;
   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score ("+clicks+") on Beat Me - Best Clicker Game ",
@@ -164,7 +165,6 @@ clicks--;
         retVal = false;
     } return retVal;
   });
-  document.getElementById('adsbutton').value = "Score Submitted!";
 }
 
 </script>
