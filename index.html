@@ -148,7 +148,6 @@ function resetall() {
    div = document.getElementById('countdown').innerHTML = '10';
 }
 function submitscore() {
-document.getElementById('adsbutton').value = "Score Submitted!";
 clicks--;
   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score ("+clicks+") on Beat Me - Best Clicker Game ",
@@ -159,6 +158,7 @@ clicks--;
     var retVal = true;
     if (result) {
         console.log('Facebook API: Send Status: Success');
+        alert("Score submitted! Keep Challenging...");
     }
     else {
         console.log('Facebook API: Send Status: Failed');
