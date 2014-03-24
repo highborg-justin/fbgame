@@ -136,12 +136,21 @@ function resetall() {
 }
 function submitscore() {
 clicks--;
-
-FB.ui({
-  method: 'feed',
-  link: 'http://rawgithub.com/highborg-justin/fbgame/master/index.html',
-  caption: 'I\'ve scored '+clicks+' points'
-}, function(response){});
+FB.api(
+    "/me/feed",
+    "POST",
+    {
+        "object": {
+            "message": "I have scored "+clicks+" points on Best Clicker! Beat Me if you can!",
+            "link": "https://apps.facebook.com/bestclicker/"
+        }
+    },
+    function (response) {
+      if (response && !response.error) {
+        div = document.getElementById('adsclick').value = 'Score Submitted';
+      }
+    }
+);
 }
 
 </script>
@@ -166,9 +175,7 @@ FB.ui({
 <input value="Click Me" style="width:300px; height:400px; background-color:#2c3e50;text-align:center; font-size:x-large; color:white;" type="button" onclick="getClick(clicks++)">
 </div>
 <div id="adsbutton" class="adsbutton">
-<input value="Game Over" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick=" FB.ui({method: 'apprequests',
-  message: 'My Great Request'
-}, requestCallback);">
+<input value="Game Over" id="adsclick" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick="inviteall();">
 </div>
 <div class="menu" id="menu">
 <input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
