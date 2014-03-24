@@ -150,11 +150,10 @@ function resetall() {
 function submitscore() {
 clicks--;
   FB.api('/me/feed', 'post', {
-    message: "message",
-    name: "name",
-    picture: "picture",
-    description: "description",
-    link: "link"
+    message: "I challenge you to break my score ("+clicks+") on Beat Me - Best Clicker Game ",
+    image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
+    description: "The most challenging game ever",
+    link: "https://apps.facebook.com/bestclicker/"
   }, function (result) {
     var retVal = true;
     if (result) {
