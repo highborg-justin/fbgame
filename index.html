@@ -136,8 +136,8 @@ var smar=mar.toString();
 }
 function inviteall() {
 var fid = new Array();
- var cnt=0;
- String flist=" ";
+ var cnt=0;	
+ var flist=" ";
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
@@ -148,11 +148,7 @@ var fid = new Array();
                   console.log('Error');
                   }
              });
-flist="\'"+fid[0].toString()+'\''
-for (invi = 0; invi < cnt-1; invi++) {
-    flist+=',\''+fid[i].toString()+'\'';
-}
-
+            flist=fid.join(",");
   console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
