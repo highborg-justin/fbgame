@@ -150,11 +150,11 @@ var fid = new Array();
                   }
              });
   console.log(fid);
-  fid.toString();
-  console.log(fid);
+  flist=fid.join();
+  console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
-      to: fid
+      to: flist
     }, callback);
       console.log('Invite Success!');
 }
