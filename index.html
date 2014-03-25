@@ -36,7 +36,9 @@ var ticker;
 var flag=0;
 var div;
 function callback(response) {
- if(response.error){
+  if (response && !response.error) {
+        /* handle the result */
+      }else{
   	alert('Please invite your friends!');
   	inviteall();
   }
