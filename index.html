@@ -135,14 +135,14 @@ var smar=mar.toString();
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 }
 function inviteall() {
-var fid = new Array();
+var frid = new Array();
  var cnt=0;	
- var flist=" ";
+ String flist;
  var invi;
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
-                   fid[cnt]=friend.id;
+                   frid[cnt]=friend.id;
                    cnt++;
                });
               }else {
@@ -150,11 +150,11 @@ var fid = new Array();
                   }
              });
   console.log(fid);
-  fid=fid.join();
-  console.log(fid);
+  flist=frid.join();
+  console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
-      to: fid
+      to: flist
     }, callback);
       console.log('Invite Success!');
 }
