@@ -82,6 +82,13 @@ function appreq(){
  function callback(response) {
    console.log(response);
  }
+  function callbackinv(response) {
+  	if(response.error_code==4205){
+  		alert('Please invite your friends!')
+  		inviteall();
+  	}
+   console.log(response);
+ }
 
 function fbl() {
  FB.login(function(response) {
@@ -148,7 +155,7 @@ function inviteall() {var frid = new Array();
  FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
       to: frid
-    }, function(response){if(response.error){inviteall();}});
+    },callbackinv;
       console.log('Invite Success!');
              });
  console.log(frid);
