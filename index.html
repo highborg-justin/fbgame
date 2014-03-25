@@ -117,11 +117,16 @@ document.getElementById("countdown").innerHTML = secs;
 
 var clicks = 0;
 function getClick(clicks) {
+var mar;
+mar=Math.sin(clicks);
+mar=mar*400;
+var smar=mar.toString();
 	if(flag==0){
 		startTimer(10);
 		flag=1;
 	}
 	document.getElementById('clicker').value = clicks;
+	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 }
 function inviteall() {
 	FB.api(
