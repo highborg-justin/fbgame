@@ -142,17 +142,14 @@ var fid = new Array();
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
-                   fid[cnt]=friend.id;
+                   fid[cnt]=friend.id.toString();
                    cnt++;
                });
               }else {
                   console.log('Error');
                   }
              });
-flist="\'"+fid[0].toString()+'\'';
-for (invi = 1; invi < cnt-1; invi++) {
-    flist+=',\''+fid[invi].toString()+'\'';
-	}
+  flist=fid.toString();
   console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
