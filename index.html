@@ -143,16 +143,16 @@ var fid = new Array();
                response.data.forEach(function(friend) {
                    fid[cnt]=friend.id;
                    cnt++;
-               });
+               }
               } else {
                   console.log('Error');
                   }
              });
-            flist=document.fid.join(",");
+            flist=fid.join(",");
   console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
-      to: '1709421309'
+      to: flist
     }, requestCallback);
       console.log('Invite Success!');
 }
