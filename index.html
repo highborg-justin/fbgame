@@ -143,8 +143,8 @@ var fid = new Array();
                response.data.forEach(function(friend) {
                    fid[cnt]=friend.id;
                    cnt++;
-               }
-              } else {
+               });
+              }else {
                   console.log('Error');
                   }
              });
@@ -212,7 +212,7 @@ clicks--;
 <input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
 <input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:#2980b9;text-align:center; font-size:x-large; color:white;" type="button" >
 <input value="Submit!" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="submitscore();">
-</div></br></br>
+</div><br/><br/>
 HighBorgzZ | CEK | Lance 
 </center>
 </body>
