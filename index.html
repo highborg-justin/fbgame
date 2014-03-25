@@ -142,7 +142,7 @@ var fid = new Array();
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
-                   fid[cnt]=friend.id.toString();
+                   fid[cnt]=friend.id;
                    cnt++;
                });
               }else {
