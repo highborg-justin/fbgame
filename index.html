@@ -137,7 +137,7 @@ var smar=mar.toString();
 function inviteall() {
  FB.api('/me/friends?limit=10', function(response) {
               if(response.data) {
-               response.data.forEach(function(index,friend) {
+               response.data.forEach(function(friend) {
                    alert(friend.name + ' has id:' + friend.id);
                });
               } else {
