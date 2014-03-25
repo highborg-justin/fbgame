@@ -134,10 +134,8 @@ var smar=mar.toString();
 	document.getElementById('clicker').value = clicks;
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 }
-function inviteall() {
-var frid = new Array();
+function inviteall() {var frid = new Array();
  var cnt=0;	
- var invi;
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
@@ -147,13 +145,13 @@ var frid = new Array();
               }else {
                   console.log('Error');
                   }
-             });
- console.log(frid);
-  FB.ui({method: 'apprequests',
+ FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
       to: frid
     }, callback);
       console.log('Invite Success!');
+             });
+ console.log(frid);
 }
 function resetall() {
    flag=0;
