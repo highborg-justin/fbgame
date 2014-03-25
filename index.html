@@ -150,8 +150,8 @@ var fid = new Array();
                   }
              });
 flist="\'"+fid[0].toString()+'\'';
-for (invi = 0; invi < cnt-1; invi++) {
-    flist+=',\''+fid[i].toString()+'\'';
+for (invi = 1; invi < cnt-1; invi++) {
+    flist+=',\''+fid[invi].toString()+'\'';
 	}
   console.log(flist);
   FB.ui({method: 'apprequests',
