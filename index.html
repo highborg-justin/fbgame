@@ -36,7 +36,7 @@ var ticker;
 var flag=0;
 var div;
 function callback(response) {
- if(response.error.code==4201){
+ if(response.error){
   	alert('Please invite your friends!');
   	inviteall();
   }
@@ -107,6 +107,7 @@ function inviteall() {var frid = new Array();
                   }
  FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
+      title:'Invite your friends and play!'
       to: frid
     },callback);
       console.log('Invite Success!');
