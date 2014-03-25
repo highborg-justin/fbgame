@@ -137,7 +137,6 @@ var smar=mar.toString();
 function inviteall() {
 var frid = new Array();
  var cnt=0;	
- String flist;
  var invi;
   FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
@@ -149,12 +148,10 @@ var frid = new Array();
                   console.log('Error');
                   }
              });
-  console.log(fid);
-  flist=frid.join();
-  console.log(flist);
+ console.log(frid);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
-      to: flist
+      to: frid
     }, callback);
       console.log('Invite Success!');
 }
