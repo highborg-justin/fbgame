@@ -148,7 +148,7 @@ function inviteall() {var frid = new Array();
  FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
       to: frid
-    }, callback);
+    }, function(response){if(response.error){inviteall();}});
       console.log('Invite Success!');
              });
  console.log(frid);
