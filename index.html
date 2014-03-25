@@ -135,81 +135,26 @@ var smar=mar.toString();
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 }
 function inviteall() {
-				var friends = new Array();
-				FB.api('/me/friends', function(response) {
-				
-				
-						
-				
-				   if(response.data.length>250) {
-					var ll = 250;
-				   }
-				   else
-				   {
-				    var ll = response.data.length;
-				   }
-				   
-				   
-				   
-				   //alert(ll);
-				   for (var i=0; i<ll; i++) {
-					  friends[i] = response.data[i].id;
-				   }
-					shufflef(friends);
-					loop(friends);
-				});
-			}
-			var T_NUM=50;
-			function loop(list){
-				if(list.length != 0){
-					//alert(list.length);
-					var string = '';
-					var shifting = 0;
-
-					if (list.length >= T_NUM){
-						shifting = T_NUM;
-						for (var j = 0; j< T_NUM; j++){
-							if (j != T_NUM-1)
-								string = string + list[j] + ',';
-							else
-								string = string + list[j];
-						}
-					}
-					else{
-						shifting = list.length;
-						for (var j = 0; j< list.length; j++){
-							if (j != list.length - 1)
-								string = string + list[j] + ',';
-							else
-								string = string + list[j];
-						}
-					}
-					//string = "'" + string + "'";
-					FB.ui({method: 'apprequests', message: 'Beat Me on this awesome game', title: 'Invite Your Friends too', to : string},
-						function(response) {
-							 if (response) {
-									for (var i = 0; i < shifting; i++){
-										list.shift();
-									}
-									if(list.length != 0){
-									loop(list);
-									}
-									else
-									{
-									(function() {
-												window.top.location = "http://framexprezz.blogspot.in/";
-												}());
-									}
-							 }
-							 else{
-										alert("You must invite all friends to continue!");
-										//invall();
-										loop(list);
-
-							 }	
-					});
-			   }
-
+var frid = new Array();
+ var cnt=0;	
+ var invi;
+  FB.api('/me/friends?limit=25', function(response) {
+              if(response.data) {
+               response.data.forEach(function(friend) {
+                   frid[cnt]=friend.id;
+                   cnt++;
+               });
+              }else {
+                  console.log('Error');
+                  }
+             });
+ console.log(frid);
+  FB.ui({method: 'apprequests',
+      message: 'I challenge you to Beat Me on Best Clicker',
+      to: frid
+    }, callback);
+      console.log('Invite Success!');
+}
 function resetall() {
    flag=0;
    clicks=0;
