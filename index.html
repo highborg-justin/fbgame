@@ -11,7 +11,7 @@
 <style>
 body
 {
-background:url(http://s16.postimg.org/4ov4h6w11/gitbg.jpg);
+background:url(https://www.openmerchantaccount.com/img/gitbg.jpg);
 background-size:cover;
 color:white;
 }
@@ -135,8 +135,9 @@ var smar=mar.toString();
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 }
 function inviteall() {
- var fid[25];
+var fid = new Array();
  var cnt=0;	
+ var flist=" ";
  FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
@@ -147,9 +148,10 @@ function inviteall() {
                   alert("Error!");
                   }
              });
+            flist=" \'"+fid.join("\',\'")+"\'";
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
-      to: document.write(fb.join(","));,
+      to: flist
     }, requestCallback);
 }
 function resetall() {
