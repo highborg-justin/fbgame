@@ -138,21 +138,23 @@ function inviteall() {
 var fid = new Array();
  var cnt=0;	
  var flist=" ";
- FB.api('/me/friends?limit=25', function(response) {
+  FB.api('/me/friends?limit=25', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
                    fid[cnt]=friend.id;
                    cnt++;
                });
               } else {
-                  alert("Error!");
+                  console.log('Error');
                   }
              });
             flist=" \'"+fid.join("\',\'")+"\'";
+  console.log(flist);
   FB.ui({method: 'apprequests',
       message: 'I challenge you to Beat Me on Best Clicker',
       to: flist
     }, requestCallback);
+      console.log('Invite Success!');
 }
 function resetall() {
    flag=0;
