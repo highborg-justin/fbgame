@@ -89,7 +89,7 @@ document.getElementById("countdown").innerHTML = secs;
 var clicks = 0;
 function getClick(clicks) {
 var mar;
-mar=Math.sin(clicks);
+mar=Math.sin(clicks+260);
 mar=mar*400;
 var smar=mar.toString();
 	if(flag==0){
@@ -188,7 +188,7 @@ clicks--;
 <input value="Click to Start!" style="width:300px; height:400px; background-color:#4c66a4;text-align:center; font-size:x-large; color:white;" type="button"  onclick="fbl();">
 </div>
 <div id="clickbutton" class="clickbutton">
-<input id="clickme" value="Click the Minions ASAP!" style="width:300px; height:400px; background-color:#fff;text-align:center; font-size:x-large; color:blue;" type="button" onclick="getClick(clicks++)">
+<input id="clickme" value="Click Me" style="width:300px; height:400px; background-color:rgba(182, 255, 168, 0.7);text-align:center; font-size:x-large; color:#016934;" type="button" onclick="getClick(clicks++)">
 </div>
 <div id="adsbutton" class="adsbutton">
 <input value="Game Over" id="adsclick" style="width:300px; height:400px; background-color:#c0392b;text-align:center; font-size:x-large; color:white;" type="button"  onclick="headToAds();">
