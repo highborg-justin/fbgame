@@ -88,9 +88,12 @@ document.getElementById("countdown").innerHTML = secs;
   // 60 seconds 
 
 var clicks = 0;
+var vmar = 0;
 function getClick(clicks) {
 var mar;
-mar=Math.sin((clicks*100)+270);
+mar = clicks * 100;
+vmar = vmar + mar;
+mar=Math.sin(vmar);
 mar=mar*400;
 var smar=mar.toString();
 	if(flag==0){
