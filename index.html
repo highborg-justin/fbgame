@@ -137,6 +137,7 @@ function inviteall() {var frid = new Array();
 function resetall() {
    flag=0;
    clicks=0;
+   clearInterval(ticker); 
    document.getElementById('clicker').value = 'Your Score';
    div = document.getElementById('clickbutton').style.display = 'block';
    div = document.getElementById('adsbutton').style.display = 'none';
