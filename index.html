@@ -22,6 +22,8 @@ color:white;
  display:none;
  position: absolute;
  height :650px;
+ padding-bottom:10px;
+ margin-bottom:20px;
  width : 200px;
  float : left;
  z-index:5;
@@ -92,6 +94,7 @@ function showRank(){
                 if(scnt==10)
                    div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/>';
                 scnt++; });
+                console.log('Rank Made!');
               }else {
                   console.log('Error');
                   }});
@@ -236,8 +239,7 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
-         showRank();
-         return retVal;
+  showRank();
 }
 
 </script>
