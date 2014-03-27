@@ -19,7 +19,8 @@ color:white;
 	display:none;
 }
 .leaderboard {
-position: absolute;
+ display:none;
+ position: absolute;
  height : 60px;
  width : 265px;
  float : left;
@@ -30,6 +31,8 @@ position: absolute;
  overflow-y: scroll;
 }
 .eachrank {
+ padding-left:5px;
+ text-align:left;
  width:249;
 }
 .adsbutton {
@@ -65,8 +68,9 @@ function callback(response) {
 var scnt=1;
 
 function showRank(){
-document.getElementById('leaderboard').style.height = '500px';	
-FB.api('/259826257528588/scores?limit=10', function(response) {
+ document.getElementById('leaderboard').style.display = 'block';	
+ document.getElementById('leaderboard').style.height = '500px';	
+ FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
                	if(scnt==1)
@@ -88,7 +92,7 @@ FB.api('/259826257528588/scores?limit=10', function(response) {
                 if(scnt==9)
                    div = document.getElementById('rank9').innerHTML= '<b>9.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
                 if(scnt==10)
-                   div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score;
                 scnt++; });
               }else {
                   console.log('Error');
@@ -100,6 +104,7 @@ function fbl() {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
      		inviteall();
+     		showRank();
 		div = document.getElementById('signbutton').style.display = 'none';
 		div = document.getElementById('clickbutton').style.display = 'block';
 		div = document.getElementById('menu').style.display = 'block';
@@ -262,7 +267,7 @@ FB.api('/me/scores', 'post', {
 </div>
 <br/>
 <div class="leaderboard" id="leaderboard">
-<input type="button" onclick="showRank();" style=" background-color:rgba(182, 255, 168, 0.7); width:250px; height:60px; background-image:url('https://www.openmerchantaccount.com/img/topten.png');" />
+<img src="https://www.openmerchantaccount.com/img/topten.png" />
 <div id="rank1" class="eachrank"></div>
 <div id="rank2" class="eachrank"></div>
 <div id="rank3" class="eachrank"></div>
