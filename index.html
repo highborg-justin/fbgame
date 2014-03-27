@@ -21,14 +21,12 @@ color:white;
 .leaderboard {
  display:none;
  position: absolute;
- height : 60px;
+ height :650px;
  width : 265px;
  float : left;
  z-index:5;
  background-color:rgba(0, 255, 225, 0.75);
  color:#016934;
- overflow-x:hidden;
- overflow-y: scroll;
 }
 .eachrank {
  padding-left:5px;
@@ -69,7 +67,7 @@ var scnt=1;
 
 function showRank(){
  document.getElementById('leaderboard').style.display = 'block';	
- document.getElementById('leaderboard').style.height = '500px';	
+ document.getElementById('leaderboard').style.height = 'auto';	
  FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
@@ -220,21 +218,21 @@ FB.api('/me/scores', 'post', {
         retVal = false;
     } 
   });
-  FB.api('/me/feed', 'post', {
-    message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
-    image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
-    description: "The most simple and challenging game ever from HighBorgzZ",
-    link: "https://apps.facebook.com/bestclicker/"
-  }, function (result) {
-    var retVal = true;
-    if (result) {
-        console.log('Facebook API: Send Status: Success');
+  //FB.api('/me/feed', 'post', {
+  //  message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
+  //  image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
+  //  description: "The most simple and challenging game ever from HighBorgzZ",
+  //  link: "https://apps.facebook.com/bestclicker/"
+  //}, function (result) {
+  //  var retVal = true;
+  //  if (result) {
+  //    console.log('Facebook API: Send Status: Success');
         alert("Score submitted! Keep Challenging...");
-    }
-    else {
-        console.log('Facebook API: Send Status: Failed');
-        retVal = false;
-    } 
+  //  }
+  //  else {
+  //      console.log('Facebook API: Send Status: Failed');
+  //      retVal = false;
+  //  } 
          FB.ui({method: 'apprequests',
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
@@ -267,7 +265,7 @@ FB.api('/me/scores', 'post', {
 </div>
 <br/>
 <div class="leaderboard" id="leaderboard">
-<img src="https://www.openmerchantaccount.com/img/topten.png" />
+<img src="https://www.openmerchantaccount.com/img/topten.png" /><hr/>
 <div id="rank1" class="eachrank"></div>
 <div id="rank2" class="eachrank"></div>
 <div id="rank3" class="eachrank"></div>
