@@ -63,7 +63,7 @@ document.getElementById('leaderboard').style.height = '500px';
 FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
-                   div = document.getElementById('rank'+scnt).innerHTML= '<h1>'+friend.user.name+'</h1><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank1').innerHTML= '<h1>'+friend.user.name+'</h1><br/> Score :'+friend.score+'<hr/>';
                    scnt++; });
               }else {
                   console.log('Error');
