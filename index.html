@@ -104,7 +104,7 @@ var smar=mar.toString();
 	document.getElementById('clickme').value = ".";
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
 	if(click>=10){
-		document.getElementById('clickme').value = "10 PLUS BOOSTER!";
+		document.getElementById('clickme').value = "10+ BOOST!";
 		clicks+=10;
 	}
 	if(click%6==0)
@@ -153,7 +153,7 @@ function resetall() {
    document.getElementById('clickbutton').style.marginLeft= '0px';
 }
 function submitscore() {
-clicks--;
+clicks-=10;
   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
     image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
