@@ -58,7 +58,7 @@ function callback(response) {
  }
 var scnt=1;
 
-function showRank{
+function showRank(){
 document.getElementById('leaderboard').style.height = '500px';	
 FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
@@ -237,7 +237,7 @@ FB.api('/me/scores', 'post', {
 </div>
 <br/>
 <div class="leaderboard">
-<input type="button" onclick="showRank();" style="background-image:url('https://www.openmerchantaccount.com/img/topten.png');" />
+<input type="button" onclick="showRank();" style="width:250px; height:60px; background-image:url('https://www.openmerchantaccount.com/img/topten.png');" />
 <div id="rank1"></div>
 <div id="rank2"></div>
 <div id="rank3"></div>
