@@ -66,7 +66,7 @@ FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
                	if(scnt==1)
-                   div = document.getElementById('rank1').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> <Score :'+friend.score+'</h3><hr/>';
+                   div = document.getElementById('rank1').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
                 if(scnt==2)
                    div = document.getElementById('rank2').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
                 if(scnt==3)
@@ -268,7 +268,7 @@ FB.api('/me/scores', 'post', {
 <div id="rank7"></div>
 <div id="rank8"></div>
 <div id="rank9"></div>
-<div id="rank9"></div>
+<div id="rank10"></div>
 </div>
 <span id="message" style="font-size:x-large;">Click Repeatedly on the Minions!<br/>You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
 <div id="signbutton" class="signbutton">
