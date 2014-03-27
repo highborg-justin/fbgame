@@ -72,25 +72,25 @@ function showRank(){
               if(response.data) {
                response.data.forEach(function(friend) {
                	if(scnt==1)
-                   div = document.getElementById('rank1').innerHTML= '<b>1.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank1').innerHTML= '<b>1.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==2)
-                   div = document.getElementById('rank2').innerHTML= '<b>2.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank2').innerHTML= '<b>2.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==3)
-                   div = document.getElementById('rank3').innerHTML= '<b>3.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank3').innerHTML= '<b>3.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==4)
-                   div = document.getElementById('rank4').innerHTML= '<b>4.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank4').innerHTML= '<b>4.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==5)
-                   div = document.getElementById('rank5').innerHTML= '<b>5.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank5').innerHTML= '<b>5.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==6)
-                   div = document.getElementById('rank6').innerHTML= '<b>6.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank6').innerHTML= '<b>6.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==7)
-                   div = document.getElementById('rank7').innerHTML= '<b>7.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank7').innerHTML= '<b>7.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==8)
-                   div = document.getElementById('rank8').innerHTML= '<b>8.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank8').innerHTML= '<b>8.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==9)
-                   div = document.getElementById('rank9').innerHTML= '<b>9.'+friend.user.name+'</b><br/> Score :'+friend.score+'<hr/>';
+                   div = document.getElementById('rank9').innerHTML= '<b>9.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
                 if(scnt==10)
-                   div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score;
+                   div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/>';
                 scnt++; });
               }else {
                   console.log('Error');
