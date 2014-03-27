@@ -165,6 +165,18 @@ function resetall() {
 }
 function submitscore() {
 clicks-=10;
+FB.api('/me/scores', 'post', {
+    score: clicks
+  }, function (result) {
+    var retVal = true;
+    if (result) {
+        console.log('Score Submitted');
+    }
+    else {
+        console.log('Score error');
+        retVal = false;
+    } 
+  });
   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
     image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
