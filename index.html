@@ -18,6 +18,14 @@ color:white;
 .imageloader{
 	display:none;
 }
+.leaderboard {
+position: absolute;
+ height : 500px;
+ width : 250px;
+ float : left;
+ z-index:5;
+ background-color:rgba(0, 255, 225, 0.75);
+}
 .adsbutton {
  display:none;
 }
@@ -203,6 +211,9 @@ clicks-=10;
 </div>
 <br/>
 <span id="message" style="font-size:x-large;">Click Repeatedly on the Minions!<br/>You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
+<div class="leaderboard">
+<img src="topten.png" />
+</div>
 <div id="signbutton" class="signbutton">
 <input value="Click to Start!" style="width:300px; height:400px; background-color:#4c66a4;text-align:center; font-size:x-large; color:white;" type="button"  onclick="fbl();">
 </div>
