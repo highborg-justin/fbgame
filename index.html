@@ -100,6 +100,10 @@ var smar=mar.toString();
 		startTimer(10);
 		flag=1;
 	}
+	if(clicks>10){
+		ocument.getElementById('clickme').value = "10 PLUS BOOSTER!";
+		clicks = clicks +  10;
+	}
 	document.getElementById('clicker').value = clicks;
 	document.getElementById('clickme').value = ".";
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
@@ -151,7 +155,7 @@ function resetall() {
 function submitscore() {
 clicks--;
   FB.api('/me/feed', 'post', {
-    message: "I challenge you to break my score ("+clicks+") on Beat Me - Best Clicker Game ",
+    message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
     image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
     description: "The most simple and challenging game ever from HighBorgzZ",
     link: "https://apps.facebook.com/bestclicker/"
@@ -164,7 +168,12 @@ clicks--;
     else {
         console.log('Facebook API: Send Status: Failed');
         retVal = false;
-    } return retVal;
+    } 
+         FB.ui({method: 'apprequests',
+          message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
+          title:'Challenge your friends'
+         },callback);
+         return retVal;
   });
 }
 
