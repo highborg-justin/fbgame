@@ -25,6 +25,8 @@ position: absolute;
  float : left;
  z-index:5;
  background-color:rgba(0, 255, 225, 0.75);
+ color:#016934;
+ 
 }
 .adsbutton {
  display:none;
@@ -63,8 +65,27 @@ document.getElementById('leaderboard').style.height = '500px';
 FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
-                   div = document.getElementById('rank1').innerHTML= '<h1>'+friend.user.name+'</h1><br/> Score :'+friend.score+'<hr/>';
-                   scnt++; });
+               	if(scnt==1)
+                   div = document.getElementById('rank1').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> <Score :'+friend.score+'</h3><hr/>';
+                if(scnt==2)
+                   div = document.getElementById('rank2').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==3)
+                   div = document.getElementById('rank3').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==4)
+                   div = document.getElementById('rank4').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==5)
+                   div = document.getElementById('rank5').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==6)
+                   div = document.getElementById('rank6').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==7)
+                   div = document.getElementById('rank7').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==8)
+                   div = document.getElementById('rank8').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==9)
+                   div = document.getElementById('rank9').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                if(scnt==1)
+                   div = document.getElementById('rank10').innerHTML= '<h2>'+friend.user.name+'</h2><br/><h3> Score :'+friend.score+'</h3><hr/>';
+                scnt++; });
               }else {
                   console.log('Error');
                   }});
@@ -237,7 +258,7 @@ FB.api('/me/scores', 'post', {
 </div>
 <br/>
 <div class="leaderboard" id="leaderboard">
-<input type="button" onclick="showRank();" style="width:250px; height:60px; background-image:url('https://www.openmerchantaccount.com/img/topten.png');" />
+<input type="button" onclick="showRank();" style=" background-color:rgba(182, 255, 168, 0.7); width:250px; height:60px; background-image:url('https://www.openmerchantaccount.com/img/topten.png');" />
 <div id="rank1"></div>
 <div id="rank2"></div>
 <div id="rank3"></div>
