@@ -61,8 +61,7 @@ FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
                    div = document.getElementById('rank'+scnt).innerHTML= '<h1>'+friend.user.name+'</h1><br/> Score :'+friend.score+'<hr/>';
-                   scnt++;
-               });
+                   scnt++; });
               }else {
                   console.log('Error');
                   },callback);
