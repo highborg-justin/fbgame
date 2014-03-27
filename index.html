@@ -89,9 +89,9 @@ document.getElementById("countdown").innerHTML = secs;
 
 var clicks = 0;
 var vmar = 0;
-function getClick(clicks) {
+function getClick(click) {
 var mar;
-mar = clicks * 100;
+mar = click * 100;
 vmar = vmar + mar;
 mar=Math.sin(vmar);
 mar=mar*400;
@@ -103,21 +103,21 @@ var smar=mar.toString();
 	document.getElementById('clicker').value = clicks;
 	document.getElementById('clickme').value = ".";
 	document.getElementById('clickbutton').style.marginLeft= smar + 'px';
-	if(clicks==10){
+	if(click>=10){
 		document.getElementById('clickme').value = "10 PLUS BOOSTER!";
 		clicks+=10;
 	}
-	if(clicks%6==0)
+	if(click%6==0)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min1.png')";
-	if(clicks%6==1)
+	if(click%6==1)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min2.png')";
-	if(clicks%6==2)
+	if(click%6==2)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min3.png')";
 	if(clicks%6==3)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min4.png')";
-	if(clicks%6==4)
+	if(click%6==4)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min5.png')";
-	if(clicks%6==5)
+	if(click%6==5)
 		document.getElementById('clickme').style.backgroundImage = "url('https://www.openmerchantaccount.com/img/min6.png')";
 }
 function inviteall() {var frid = new Array();
