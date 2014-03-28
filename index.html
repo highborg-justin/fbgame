@@ -209,6 +209,7 @@ function resetall() {
    document.getElementById('clickbutton').style.marginLeft= '0px';
 }
 
+var playround=0;
 function submitscore() {
 clicks-=10;
 FB.api('/me/scores', 'post', {
@@ -241,11 +242,12 @@ FB.api('/me/scores', 'post', {
         retVal = false;
     } });
   }
+  playround++;
+  if(playround%5==4){
          FB.ui({method: 'apprequests',
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
-         },location.reload());
-         
+         },callback);}
 }
 
 </script>
