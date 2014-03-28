@@ -55,6 +55,11 @@ var timeInSecs;
 var ticker;
 var flag=0;
 var div;
+
+function loading(){
+ showRank();
+ fbl();
+}
   
 function callback(response) {
   if (response && !response.error) {
@@ -253,7 +258,7 @@ FB.api('/me/scores', 'post', {
 
 </script>
 </head>
-<body style="font-family:sans-serif; ">
+<body onload="loading();" style="font-family:sans-serif; ">
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -289,7 +294,7 @@ FB.api('/me/scores', 'post', {
 </div>
 <span id="message" style="font-size:x-large;">Click Repeatedly on the Minions!<br/>You have <span id="countdown" style="font-weight: bold;">10</span> seconds left! </span>
 <div id="signbutton" class="signbutton">
-<input value="Click to Start!" style="width:300px; height:400px; background-color:#4c66a4;text-align:center; font-size:x-large; color:white;" type="button"  onclick="fbl();">
+<input value="Loading" style="width:300px; height:400px; background-color:#4c66a4;text-align:center; font-size:x-large; color:white;" type="button"  onclick="fbl();">
 </div>
 <div id="clickbutton" class="clickbutton">
 <input id="clickme" value="Click Here To Start!" style="width:300px; height:400px; background-color:rgba(182, 255, 168, 0.7);text-align:center; font-size:x-large; color:#016934;" type="button" onclick="getClick(clicks++)">
