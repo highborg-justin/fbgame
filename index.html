@@ -54,6 +54,7 @@ color:white;
 var timeInSecs;
 var ticker;
 var flag=0;
+var flgvalue=0;
 var div;
   
 function callback(response) {
@@ -100,12 +101,14 @@ function showRank(){
                   console.log('Error');
                   }});
 }                 
-function fbl() {
+function fbl(flgvalue) {
  FB.login(function(response) {
    if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
+     	if(flgvalue==0){
      		inviteall();
+     	}
      		showRank();
 		div = document.getElementById('signbutton').style.display = 'none';
 		div = document.getElementById('adsbutton').style.display = 'none';
@@ -208,8 +211,8 @@ function resetall() {
    div = document.getElementById('countdown').innerHTML = '10';
    document.getElementById('clickme').value = "Click to start!";
    document.getElementById('clickbutton').style.marginLeft= '0px';
-   showRank();
 }
+
 function submitscore() {
 clicks-=10;
 FB.api('/me/scores', 'post', {
@@ -224,7 +227,10 @@ FB.api('/me/scores', 'post', {
         retVal = false;
     } 
   });
-  FB.api('/me/feed', 'post', {
+  var postresult=confirm("Do You want to Publish your Score?");
+  if (postresult==true)
+  {
+   FB.api('/me/feed', 'post', {
     message: "I challenge you to break my score "+clicks+" on Beat Me - Best Clicker Game ",
     image: "https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc1/t31.0-8/p720x720/1957865_4056810354502_941597101_o.jpg",
     description: "The most simple and challenging game ever from HighBorgzZ",
@@ -238,10 +244,12 @@ FB.api('/me/scores', 'post', {
         console.log('Facebook API: Send Status: Failed');
         retVal = false;
     } });
+  }
          FB.ui({method: 'apprequests',
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
+         fbl(1);
 }
 
 </script>
