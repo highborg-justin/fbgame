@@ -65,10 +65,10 @@ function callback(response) {
   }
    console.log(response);
  }
+
 var scnt=1;
-var ranktime;
+
 function showRank(){
- clearInterval(ranktime);
  document.getElementById('leaderboard').style.display = 'block';	
  document.getElementById('leaderboard').style.height = 'auto';	
  FB.api('/259826257528588/scores?limit=10', function(response) {
@@ -208,6 +208,7 @@ function resetall() {
    div = document.getElementById('countdown').innerHTML = '10';
    document.getElementById('clickme').value = "Click to start!";
    document.getElementById('clickbutton').style.marginLeft= '0px';
+   showRank();
 }
 function submitscore() {
 clicks-=10;
@@ -241,7 +242,6 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
-  fbl();
 }
 
 </script>
