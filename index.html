@@ -54,7 +54,6 @@ color:white;
 var timeInSecs;
 var ticker;
 var flag=0;
-var flgvalue=0;
 var div;
   
 function callback(response) {
@@ -101,17 +100,14 @@ function showRank(){
                   console.log('Error');
                   }});
 }                 
-function fbl(flgvalue) {
+function fbl() {
  FB.login(function(response) {
    if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
-     	if(flgvalue==0){
-     		inviteall();
-     	}
+     		inviteall();     	}
      		showRank();
 		div = document.getElementById('signbutton').style.display = 'none';
-		div = document.getElementById('adsbutton').style.display = 'none';
 		div = document.getElementById('clickbutton').style.display = 'block';
 		div = document.getElementById('menu').style.display = 'block';
 		
@@ -249,7 +245,7 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
-         fbl(1);
+         showRank();
 }
 
 </script>
