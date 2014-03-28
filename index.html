@@ -255,7 +255,11 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);}
-  FB.api('/259826257528588/scores?limit=10', function(response) {
+   FB.login(function(response) {
+   if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', function(response) {
+  	FB.api('/259826257528588/scores?limit=10', function(response) {
               if(response.data) {
                response.data.forEach(function(friend) {
                	if(scnt==1)
@@ -283,6 +287,11 @@ FB.api('/me/scores', 'post', {
               }else {
                   console.log('Error');
                   }});
+     });
+   } else {
+     console.log('User cancelled login or did not fully authorize.');
+   }
+ },{scope: 'publish_actions,user_games_activity,friends_games_activity'});
 }
 
 </script>
