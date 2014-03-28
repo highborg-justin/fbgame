@@ -215,9 +215,10 @@ function resetall() {
    div = document.getElementById('countdown').innerHTML = '10';
    document.getElementById('clickme').value = "Click to start!";
    document.getElementById('clickbutton').style.marginLeft= '0px';
+   div = document.getElementById('chall').style.display = 'none';
 }
 
-var playround=0;
+
 function submitscore() {
 clicks-=10;
 FB.api('/me/scores', 'post', {
@@ -250,13 +251,8 @@ FB.api('/me/scores', 'post', {
         retVal = false;
     } });
   }
-  playround++;
-  if(playround%5==4){
-         FB.ui({method: 'apprequests',
-          message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
-          title:'Challenge your friends'
-         },callback);}
-   FB.login(function(response) {
+  div = document.getElementById('chall').style.display = 'block';
+  FB.login(function(response) {
    if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
@@ -296,6 +292,12 @@ FB.api('/me/scores', 'post', {
  },{scope: 'publish_actions,user_games_activity,friends_games_activity'});
 }
 
+function challenge() {
+      FB.ui({method: 'apprequests',
+          message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
+          title:'Challenge your friends'
+         },callback);
+}
 </script>
 </head>
 <body onload="loading();" style="font-family:sans-serif; ">
@@ -346,7 +348,9 @@ FB.api('/me/scores', 'post', {
 <input value="Try Again" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="resetall();">
 <input id="clicker" value="Your Score" style="display: inline; width:200px; height:50px; background-color:#2980b9;text-align:center; font-size:x-large; color:white;" type="button" >
 <input value="Submit!" style="display: inline; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="submitscore();">
-</div><br/><br/>
+</div><br/>
+<input value="Challenge Friends" id="chall" style="display: none; width:200px; height:50px; background-color:#e74c3c;text-align:center; font-size:x-large; color:white;" type="button" onclick="challenge();">
+<br/><br/>
 HighBorgzZ | CEK | Lance 
 </center>
 </body>
