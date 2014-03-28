@@ -58,7 +58,6 @@ var div;
 
 function loading(){
  showRank();
- document.getElementById('signbutton').value = "Login to Play!";
  fbl();
 }
   
@@ -105,6 +104,8 @@ function showRank(){
                 scnt=1;
               }else {
                   console.log('Error');
+                  document.getElementById('signbutton').value = "Login to Play!";
+                  div = document.getElementById('leaderboard').style.display = 'none';
                   }});
 }                 
 function fbl() {
