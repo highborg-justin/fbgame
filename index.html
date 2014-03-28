@@ -66,8 +66,9 @@ function callback(response) {
    console.log(response);
  }
 var scnt=1;
-
+var ranktime;
 function showRank(){
+ clearInterval(ranktime);
  document.getElementById('leaderboard').style.display = 'block';	
  document.getElementById('leaderboard').style.height = 'auto';	
  FB.api('/259826257528588/scores?limit=10', function(response) {
@@ -239,10 +240,7 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
-  showRank();
-  showRank();
-  showRank();
-  showRank();
+  ranktime=setInterval(function(){showRank()},5000);
 }
 
 </script>
