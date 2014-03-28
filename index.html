@@ -58,6 +58,7 @@ var div;
 
 function loading(){
  showRank();
+ document.getElementById('signbutton').value = "Login to Play!";
  fbl();
 }
   
@@ -254,6 +255,34 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);}
+  FB.api('/259826257528588/scores?limit=10', function(response) {
+              if(response.data) {
+               response.data.forEach(function(friend) {
+               	if(scnt==1)
+                   div = document.getElementById('rank1').innerHTML= '<b>1.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==2)
+                   div = document.getElementById('rank2').innerHTML= '<b>2.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==3)
+                   div = document.getElementById('rank3').innerHTML= '<b>3.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==4)
+                   div = document.getElementById('rank4').innerHTML= '<b>4.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==5)
+                   div = document.getElementById('rank5').innerHTML= '<b>5.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==6)
+                   div = document.getElementById('rank6').innerHTML= '<b>6.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==7)
+                   div = document.getElementById('rank7').innerHTML= '<b>7.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==8)
+                   div = document.getElementById('rank8').innerHTML= '<b>8.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==9)
+                   div = document.getElementById('rank9').innerHTML= '<b>9.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/><br/>';
+                if(scnt==10)
+                   div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/>';
+                scnt++; });
+                console.log('Rank Made!');
+              }else {
+                  console.log('Error');
+                  }});
 }
 
 </script>
