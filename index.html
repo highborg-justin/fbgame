@@ -101,11 +101,12 @@ function showRank(){
                   }});
 }                 
 function fbl() {
+ showRank();
  FB.login(function(response) {
    if (response.authResponse) {
      console.log('Welcome!  Fetching your information.... ');
      FB.api('/me', function(response) {
-     		inviteall();     	
+     		inviteall();     
      		showRank();
 		div = document.getElementById('signbutton').style.display = 'none';
 		div = document.getElementById('clickbutton').style.display = 'block';
