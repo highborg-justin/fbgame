@@ -108,6 +108,7 @@ function fbl() {
      		inviteall();
      		showRank();
 		div = document.getElementById('signbutton').style.display = 'none';
+		div = document.getElementById('adsbutton').style.display = 'none';
 		div = document.getElementById('clickbutton').style.display = 'block';
 		div = document.getElementById('menu').style.display = 'block';
 		
@@ -240,7 +241,7 @@ FB.api('/me/scores', 'post', {
           message: 'I challenge you to Beat My score '+clicks+' on Best Clicker',
           title:'Challenge your friends'
          },callback);
-  ranktime=setInterval(function(){showRank()},5000);
+  fbl();
 }
 
 </script>
