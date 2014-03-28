@@ -284,6 +284,7 @@ FB.api('/me/scores', 'post', {
                 if(scnt==10)
                    div = document.getElementById('rank10').innerHTML= '<b>10.'+friend.user.name+'</b><br/> Score :'+friend.score+'<br/>';
                 scnt++; });
+                scnt=1;
                 console.log('Rank Made!');
               }else {
                   console.log('Error');
